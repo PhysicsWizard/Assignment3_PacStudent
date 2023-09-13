@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 583930532}
   - component: {fileID: 583930531}
   - component: {fileID: 583930530}
+  - component: {fileID: 583930533}
   m_Layer: 0
   m_Name: RabbitChar
   m_TagString: Untagged
@@ -246,7 +247,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0439a3154bfc6f54b8b18f1afdcfecaf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -320,3 +321,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583930533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583930529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96452aad0b2656c428893927c23c2b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorRabbit: {fileID: 583930530}
