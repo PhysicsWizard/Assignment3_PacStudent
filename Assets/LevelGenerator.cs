@@ -27,13 +27,14 @@ public class LevelGenerator : MonoBehaviour
     private Dictionary<int, GameObject> tiles = new Dictionary<int, GameObject>();
     void Start()
     {
-        tiles[1] = outWall;
-        tiles[2] = outCorner;
-        tiles[3] = inWall;
-        tiles[4] = inCorner;
-        tiles[5] = tJunk;
-        tiles[6] = pellet;
-        tiles[7] = pPellet;
+        tiles[1] = outCorner;
+        tiles[2] = outWall;
+        tiles[3] = inCorner;
+        tiles[4] = inWall;
+        tiles[5] = pellet;
+        tiles[6] = pPellet;
+        tiles[7] = tJunk;
+        
         for (int i = 0; i < levelMap.GetLength(0); i++)
         {
             for (int j = 0; j < levelMap.GetLength(1); j++)
@@ -42,7 +43,7 @@ public class LevelGenerator : MonoBehaviour
                 if (levelMap[i,j] != 0)
                 {
                     Instantiate(tiles[levelMap[i,j]], new Vector2(i,j), Quaternion.identity);
-                    Debug.Log("Painted");
+                    Debug.Log(tiles[levelMap[i,j]]);
                 }
             }
         }
