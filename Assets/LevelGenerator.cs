@@ -39,11 +39,10 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < levelMap.GetLength(1); j++)
             {
-
                 if (levelMap[i,j] != 0)
                 {
-                    Instantiate(tiles[levelMap[i,j]], new Vector2(i,j), Quaternion.identity);
-                    Debug.Log(tiles[levelMap[i,j]]);
+                    Instantiate(tiles[levelMap[i,j]], new Vector2(-10 + j,3 - i), Quaternion.identity);
+                    Debug.Log("Piece " + tiles[levelMap[i,j]]);
                 }
             }
         }
