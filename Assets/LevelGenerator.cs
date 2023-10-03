@@ -39,9 +39,9 @@ public class LevelGenerator : MonoBehaviour
             for (int j = 0; j < levelMap.GetLength(1); j++)
             {
 
-                if ((int)levelMap.GetValue(i,j) != 0)
+                if (levelMap[i,j] != 0)
                 {
-                    Instantiate(tiles[(int)levelMap.GetValue(i,j)], new Vector2(i,j), Quaternion.identity);
+                    Instantiate(tiles[levelMap[i,j]], new Vector2(i,j), Quaternion.identity);
                     Debug.Log("Painted");
                 }
             }
