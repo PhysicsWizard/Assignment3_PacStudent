@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tiles/Sprites/Palette1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Sprites/Palette1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Carrot - Golden.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Carrot - Golden.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Carrot - Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Carrot - Normal.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696288408927</updated>
       <workItem from="1696288412576" duration="961000" />
-      <workItem from="1696301498864" duration="1718000" />
+      <workItem from="1696301498864" duration="3020000" />
     </task>
     <servers />
   </component>

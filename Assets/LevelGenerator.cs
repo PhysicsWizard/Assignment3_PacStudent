@@ -23,14 +23,28 @@ public class LevelGenerator : MonoBehaviour
         {0,0,0,0,0,0,5,0,0,0,4,0,0,0},
     };
 
-    public Sprite outerWall, outCorner, inWall, inCorner, tJunk, pellet, PPellet;
-    public GameObject outWall;
+    public GameObject outWall, outCorner, inWall, inCorner, tJunk, pellet, pPellet;
+    private Dictionary<int, GameObject> tiles = new Dictionary<int, GameObject>();
     void Start()
     {
+        tiles[1] = outWall;
+        tiles[2] = outCorner;
+        tiles[3] = inWall;
+        tiles[4] = inCorner;
+        tiles[5] = tJunk;
+        tiles[6] = pellet;
+        tiles[7] = pPellet;
         for (int i = 0; i < levelMap.GetLength(0); i++)
         {
-            Instantiate(outWall, new Vector2(i,0), Quaternion.identity);
-            Debug.Log("Painted");
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+
+                if ((int)levelMap.GetValue(i,j) != 0)
+                {
+                    Instantiate(tiles[(int)levelMap.GetValue(i,j)], new Vector2(i,j), Quaternion.identity);
+                    Debug.Log("Painted");
+                }
+            }
         }
     }
 
