@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/LevelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelGenerator.cs" afterDir="false" />
-    </list>
+    <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696288408927</updated>
       <workItem from="1696288412576" duration="961000" />
-      <workItem from="1696301498864" duration="3907000" />
+      <workItem from="1696301498864" duration="4672000" />
     </task>
     <servers />
   </component>
