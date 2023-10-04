@@ -224,7 +224,11 @@ public class LevelGenerator : MonoBehaviour
     
     private GameObject getNorthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
-        return dict[new Vector2(x -1, y)];
+        if (dict.ContainsKey(new Vector2(x -1, y)))
+        {
+            return dict[new Vector2(x -1, y)];
+        }
+        return null;
     }
     
     private int getEast(int[,] array, int x, int y)
@@ -239,7 +243,12 @@ public class LevelGenerator : MonoBehaviour
     
     private GameObject getEastDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
-        return dict[new Vector2(x, y+1)];
+        if (dict.ContainsKey(new Vector2(x, y+1)))
+        {
+            return dict[new Vector2(x, y+1)];
+        }
+
+        return null;
     }
     
     private int getSouth(int[,] array, int x, int y)
@@ -254,7 +263,12 @@ public class LevelGenerator : MonoBehaviour
     
     private GameObject getSouthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
-        return dict[new Vector2(x + 1, y)];
+        if (dict.ContainsKey(new Vector2(x + 1, y)))
+        {
+            return dict[new Vector2(x + 1, y)];
+        }
+
+        return null;
     }
     
     private int getWest(int[,] array, int x, int y)
@@ -269,7 +283,12 @@ public class LevelGenerator : MonoBehaviour
     
     private GameObject getWestDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
-        return dict[new Vector2(x, y -1)];
+        if (dict.ContainsKey(new Vector2(x, y -1)))
+        {
+            return dict[new Vector2(x, y -1)];
+        }
+
+        return null;
     }
     
     public static bool isInBounds(int[,] array, int x, int y)
