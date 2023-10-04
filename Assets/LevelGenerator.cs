@@ -33,7 +33,46 @@ public class LevelGenerator : MonoBehaviour
     public GameObject grid;
     void Start()
     {
+        
+        
         Destroy(grid);
+        genrateLevel(generateFullLevel(levelMap));
+    }
+
+    private int[,] generateFullLevel(int[,] levelMap)
+    {
+        int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                fullLevel[i, j] = levelMap[i, j];
+            }
+        }
+
+        int[,] mirroredArray = new int[levelMap.GetLength(0), levelMap.GetLength(1)];
+        
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                mirroredArray[i, levelMap.GetLength(1) - j - 1 ] = levelMap[i, j];
+            }
+        }
+        
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                fullLevel[i, j + levelMap.GetLength(1)] = mirroredArray[i, j];
+            }
+        }
+
+        return fullLevel;
+    }
+
+    private void genrateLevel(int [,] level)
+    {
         tiles[0] = null;
         tiles[1] = outCorner;
         tiles[2] = outWall;
@@ -43,56 +82,82 @@ public class LevelGenerator : MonoBehaviour
         tiles[6] = pPellet;
         tiles[7] = tJunk;
 
-        Debug.Log(levelMap.GetLength(0));
-        Debug.Log(levelMap.GetLength(1));
+        Debug.Log(level.GetLength(0));
+        Debug.Log(level.GetLength(1));
 
         
-        for (int cols = 0; cols < levelMap.GetLength(0); cols++)
+        for (int cols = 0; cols < level.GetLength(0); cols++)
         {
-            for (int rows = 0; rows < levelMap.GetLength(1); rows++)
+            for (int rows = 0; rows < level.GetLength(1); rows++)
             {
-                if (tiles[levelMap[cols,rows]] != null)
+                if (tiles[level[cols,rows]] != null)
                 {
-                    Instantiate(tiles[levelMap[cols, rows]], new Vector2(rows,-cols),getRotation(levelMap[cols,rows], levelMap,cols,rows));
+                    Instantiate(tiles[level[cols, rows]], new Vector2(rows,-cols),getRotation(level[cols,rows], level,cols,rows));
                 }
             }
         }
-        Debug.Log("NorthTest: " + tiles[getNorth(levelMap,4,1)].name);
-        Debug.Log("EastTest: " + tiles[getEast(levelMap,4,1)].name);
-        Debug.Log("NorthTest: " + tiles[getSouth(levelMap,4,1)].name);
-        Debug.Log("NorthTest: " + tiles[getWest(levelMap,4,1)].name);
-       
     }
 
     private Quaternion getRotation(int tile, int[,] array, int x, int y)
     {
         Quaternion rotationAngle = Quaternion.Euler(0,0,0);
+
+        int north = getNorth(array, x, y);
+        int east = getEast(array, x, y);
+        int south = getSouth(array, x, y);
+        int west = getWest(array, x, y);
         
         switch (tile)
         {
             case 1:
-                if (getEast(array,x,y) == 2 && getNorth(array,x,y) == 2)
+                if (east == 2 && north == 2)
+                {
+                    rotationAngle = Quaternion.Euler(0,0,90);
+                }
+
+                if (west == 2 && south == 2)
+                {
+                    rotationAngle = Quaternion.Euler(0,0,-90);
+                }
+                
+                if (west == 2 && north == 2)
+                {
+                    rotationAngle = Quaternion.Euler(0,0,180);
+                }
+                break;
+            case 2:
+                if (north is 2 or 1)
+                {
+                    rotationAngle = Quaternion.Euler(0,0, 90);
+                }
+                break;
+            case 3:
+
+                if (south == 4 && east == 4)
+                {
+                    rotationAngle = Quaternion.Euler(0,0,0);
+                }
+                else if ((east == 4 && north == 4) || east == 4 && north == 3 || east == 3 && north == 3 || north == 4 && east == 3 || east == 4 && north == 3)
                 {
                     rotationAngle = Quaternion.Euler(0,0,90);
                     Debug.Log("90");
                 }
 
-                if (getWest(array,x,y) == 2 && getSouth(array,x,y) == 2)
+                else if (west == 4 && south == 4 || west == 4 && south == 3 || west == 3 && south == 3 || west == 4 && south == 3 || south == 4 && west == 3 )
                 {
                     rotationAngle = Quaternion.Euler(0,0,-90);
                 }
                 
-                if (getWest(array,x,y) == 2 && getNorth(array,x,y) == 2)
+                else if (west == 4 && north == 4 || west == 4 && north == 3 || west == 3 && north == 3 || west == 4 && north == 3 || north == 4 && west == 3 )
                 {
                     rotationAngle = Quaternion.Euler(0,0,180);
                 }
-
-                break;
-            case 2:
-                break;
-            case 3:
                 break;
             case 4:
+                if (north is 4 or 3 && south is 4 or 3)
+                {
+                    rotationAngle = Quaternion.Euler(0,0, 90);
+                }
                 break;
             case 5:
                 break;
