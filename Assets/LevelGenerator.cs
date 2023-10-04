@@ -28,16 +28,32 @@ public class LevelGenerator : MonoBehaviour
         {0,0,0,0,0,0,5,0,0,0,4,0,0,0},
     };
 
-    public GameObject outWall, outCorner, inWall, inCorner, tJunk, pellet, pPellet;
+    public GameObject outWall, outCorner, inWall, inCorner, tJunk, pellet, pPellet, highlight;
     private Dictionary<int, GameObject> tiles = new Dictionary<int, GameObject>();
+    private Dictionary<Vector2, GameObject> mapObjects = new Dictionary<Vector2, GameObject>();
     public GameObject grid;
     void Start()
     {
+        tiles[0] = null;
+        tiles[1] = outCorner;
+        tiles[2] = outWall;
+        tiles[3] = inCorner;
+        tiles[4] = inWall;
+        tiles[5] = pellet;
+        tiles[6] = pPellet;
+        tiles[7] = tJunk;
+        
         Destroy(grid);
-        genrateLevel(generateFullLevel(levelMap));
+        genrateLevel(drawFullLevel(levelMap));
+
+        highlightObj(0,0);
+        highlightObj(getNorthDic(mapObjects, 0, 0).transform.position);
+        highlightObj(getEastDic(mapObjects, 0, 0).transform.position);
+        highlightObj(getSouthDic(mapObjects, 0, 0).transform.position);
+        highlightObj(getWestDic(mapObjects, 0, 0).transform.position);
     }
 
-    private int[,] generateFullLevel(int[,] levelMap)
+    private int[,] drawFullLevel(int[,] levelMap)
     {
         int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
         fullLevel = flipVertical(flipHorizontal(levelMap));
@@ -112,30 +128,18 @@ public class LevelGenerator : MonoBehaviour
 
     private void genrateLevel(int [,] level)
     {
-        tiles[0] = null;
-        tiles[1] = outCorner;
-        tiles[2] = outWall;
-        tiles[3] = inCorner;
-        tiles[4] = inWall;
-        tiles[5] = pellet;
-        tiles[6] = pPellet;
-        tiles[7] = tJunk;
-
-        Debug.Log(level.GetLength(0));
-        Debug.Log(level.GetLength(1));
-
-        
         for (int cols = 0; cols < level.GetLength(0); cols++)
         {
             for (int rows = 0; rows < level.GetLength(1); rows++)
             {
                 if (tiles[level[cols,rows]] != null)
                 {
-                    Instantiate(tiles[level[cols, rows]], new Vector2(rows,-cols),getRotation(level[cols,rows], level,cols,rows));
+                    mapObjects[new Vector2(cols, rows)] = Instantiate(tiles[level[cols, rows]], new Vector2(rows,-cols),getRotation(level[cols,rows], level,cols,rows));
                 }
             }
         }
     }
+    
 
     private Quaternion getRotation(int tile, int[,] array, int x, int y)
     {
@@ -154,12 +158,12 @@ public class LevelGenerator : MonoBehaviour
                     rotationAngle = Quaternion.Euler(0,0,90);
                 }
 
-                if (west == 2 && south == 2)
+                else if (west == 2 && south == 2)
                 {
                     rotationAngle = Quaternion.Euler(0,0,-90);
                 }
                 
-                if (west == 2 && north == 2)
+                else if (west == 2 && north == 2)
                 {
                     rotationAngle = Quaternion.Euler(0,0,180);
                 }
@@ -218,6 +222,11 @@ public class LevelGenerator : MonoBehaviour
         return 0;
     }
     
+    private GameObject getNorthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
+    {
+        return dict[new Vector2(x -1, y)];
+    }
+    
     private int getEast(int[,] array, int x, int y)
     {
         if (isInBounds(array,x,y+1))
@@ -226,6 +235,11 @@ public class LevelGenerator : MonoBehaviour
         }
 
         return 0;
+    }
+    
+    private GameObject getEastDic(Dictionary<Vector2, GameObject> dict, int x, int y)
+    {
+        return dict[new Vector2(x, y+1)];
     }
     
     private int getSouth(int[,] array, int x, int y)
@@ -238,6 +252,11 @@ public class LevelGenerator : MonoBehaviour
         return 0;
     }
     
+    private GameObject getSouthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
+    {
+        return dict[new Vector2(x + 1, y)];
+    }
+    
     private int getWest(int[,] array, int x, int y)
     {
         if (isInBounds(array,x,y - 1))
@@ -248,9 +267,25 @@ public class LevelGenerator : MonoBehaviour
         return 0;
     }
     
+    private GameObject getWestDic(Dictionary<Vector2, GameObject> dict, int x, int y)
+    {
+        return dict[new Vector2(x, y -1)];
+    }
+    
     public static bool isInBounds(int[,] array, int x, int y)
     {
         return x >= 0 && x < array.GetLength(0) && y >= 0 && y < array.GetLength(1);
+    }
+    
+    private void highlightObj(float x, float y)
+    {
+        Vector2 spot = mapObjects[new Vector2(x, y)].transform.position;
+        Instantiate(highlight,spot,Quaternion.identity);
+    }
+
+    private void highlightObj(Vector2 spot)
+    {
+        Instantiate(highlight,spot,Quaternion.identity);
     }
 
    
