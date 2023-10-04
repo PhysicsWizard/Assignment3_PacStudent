@@ -33,8 +33,6 @@ public class LevelGenerator : MonoBehaviour
     public GameObject grid;
     void Start()
     {
-        
-        
         Destroy(grid);
         genrateLevel(generateFullLevel(levelMap));
     }
@@ -42,6 +40,47 @@ public class LevelGenerator : MonoBehaviour
     private int[,] generateFullLevel(int[,] levelMap)
     {
         int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
+        fullLevel = flipVertical(flipHorizontal(levelMap));
+        return fullLevel;
+    }
+    
+    private int[,] flipVertical(int[,] levelMap)
+    {
+        int[,] fullLevel = new int[levelMap.GetLength(0)* 2, levelMap.GetLength(1)];
+        
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                fullLevel[i, j] = levelMap[i, j];
+            }
+        }
+
+        int[,] mirroredArray = new int[levelMap.GetLength(0), levelMap.GetLength(1)];
+        
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                mirroredArray[levelMap.GetLength(0) - i - 1, j] = levelMap[i, j];
+            }
+        }
+        
+        for (int i = 0; i < levelMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < levelMap.GetLength(1); j++)
+            {
+                fullLevel[i  + levelMap.GetLength(0), j] = mirroredArray[i, j];
+            }
+        }
+
+        return fullLevel;
+    }
+
+    private int[,] flipHorizontal(int[,] levelMap)
+    {
+        int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
+        
         for (int i = 0; i < levelMap.GetLength(0); i++)
         {
             for (int j = 0; j < levelMap.GetLength(1); j++)
