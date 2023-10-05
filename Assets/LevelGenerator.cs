@@ -42,8 +42,11 @@ public class LevelGenerator : MonoBehaviour
         tiles[5] = pellet;
         tiles[6] = pPellet;
         tiles[7] = tJunk;
-        
-        Destroy(grid);
+
+        if (grid != null)
+        {
+            Destroy(grid);
+        }
         genrateLevel(drawFullLevel(levelMap));
     }
 
