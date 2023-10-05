@@ -135,17 +135,18 @@ public class LevelGenerator : MonoBehaviour
         
         foreach (KeyValuePair<Vector2, GameObject> tile in mapObjects)
         {
-            fixRotation(tile.Value);
+            fixRotation(tile.Value, (int)tile.Key.x,(int)tile.Key.y);
         }
     }
 
-    private void fixRotation(GameObject currentTile)
+    private void fixRotation(GameObject currentTile, int x, int y)
     {
-        GameObject northObj = getNorthDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
-        GameObject eastObj = getEastDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
-        GameObject southObj = getSouthDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
-        GameObject westObj = getWestDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
+        GameObject northObj = getNorthDic(mapObjects, x, y);
+        GameObject eastObj = getEastDic(mapObjects, x, y);
+        GameObject southObj = getSouthDic(mapObjects, x, y);
+        GameObject westObj = getWestDic(mapObjects, x, y);
 
+        bool truth = true;
         switch (currentTile.tag)
         {
             case "outCorner":
@@ -153,11 +154,11 @@ public class LevelGenerator : MonoBehaviour
             case "outWall":
                 break;
             case "inCorner":
-                if (northObj != null)
+                if (northObj != null && eastObj != null && eastObj.tag.Equals("inCorner") && northObj.tag.Equals("inWall") && northObj.transform.rotation == Quaternion.identity)
                 {
                     highlightObj(northObj.transform.position);
+                    currentTile.transform.rotation = Quaternion.Euler(0, 0, -90);
                 }
-                //currentTile.transform.rotation = Quaternion.Euler(0, 0, -90);
                 break;
             case "inWall":
                 break;
@@ -252,7 +253,6 @@ public class LevelGenerator : MonoBehaviour
     {
         if (dict.ContainsKey(new Vector2(x -1, y)))
         {
-            Debug.Log("Found North");
             return dict[new Vector2(x -1, y)];
         }
         return null;
