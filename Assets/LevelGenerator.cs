@@ -45,12 +45,6 @@ public class LevelGenerator : MonoBehaviour
         
         Destroy(grid);
         genrateLevel(drawFullLevel(levelMap));
-
-        highlightObj(0,0);
-        highlightObj(getNorthDic(mapObjects, 0, 0).transform.position);
-        highlightObj(getEastDic(mapObjects, 0, 0).transform.position);
-        highlightObj(getSouthDic(mapObjects, 0, 0).transform.position);
-        highlightObj(getWestDic(mapObjects, 0, 0).transform.position);
     }
 
     private int[,] drawFullLevel(int[,] levelMap)
@@ -138,8 +132,42 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
         }
+        
+        foreach (KeyValuePair<Vector2, GameObject> tile in mapObjects)
+        {
+            fixRotation(tile.Value);
+        }
     }
-    
+
+    private void fixRotation(GameObject currentTile)
+    {
+        GameObject northObj = getNorthDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
+        GameObject eastObj = getEastDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
+        GameObject southObj = getSouthDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
+        GameObject westObj = getWestDic(mapObjects, (int)currentTile.transform.position.x, (int)currentTile.transform.position.y);
+
+        switch (currentTile.tag)
+        {
+            case "outCorner":
+                break;
+            case "outWall":
+                break;
+            case "inCorner":
+                if (northObj != null)
+                {
+                    highlightObj(northObj.transform.position);
+                }
+                //currentTile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                break;
+            case "inWall":
+                break;
+            case "tJunk":
+                break;
+                default:
+                break;
+        }
+    }
+
 
     private Quaternion getRotation(int tile, int[,] array, int x, int y)
     {
@@ -175,15 +203,13 @@ public class LevelGenerator : MonoBehaviour
                 }
                 break;
             case 3:
-
                 if (south == 4 && east == 4)
                 {
                     rotationAngle = Quaternion.Euler(0,0,0);
                 }
                 else if ((east == 4 && north == 4) || east == 4 && north == 3 || east == 3 && north == 3 || north == 4 && east == 3 || east == 4 && north == 3)
                 {
-                    rotationAngle = Quaternion.Euler(0,0,90);
-                    Debug.Log("90");
+                        rotationAngle = Quaternion.Euler(0, 0, 90);
                 }
 
                 else if (west == 4 && south == 4 || west == 4 && south == 3 || west == 3 && south == 3 || west == 4 && south == 3 || south == 4 && west == 3 )
@@ -226,6 +252,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (dict.ContainsKey(new Vector2(x -1, y)))
         {
+            Debug.Log("Found North");
             return dict[new Vector2(x -1, y)];
         }
         return null;
