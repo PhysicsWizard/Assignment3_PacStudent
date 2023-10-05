@@ -7,8 +7,6 @@
     <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LevelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +93,7 @@
       <workItem from="1696288412576" duration="961000" />
       <workItem from="1696301498864" duration="4672000" />
       <workItem from="1696373656818" duration="20571000" />
-      <workItem from="1696460156669" duration="6590000" />
+      <workItem from="1696460156669" duration="7532000" />
     </task>
     <servers />
   </component>

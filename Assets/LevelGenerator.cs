@@ -156,8 +156,16 @@ public class LevelGenerator : MonoBehaviour
             case "inCorner":
                 if (northObj != null && eastObj != null && eastObj.tag.Equals("inCorner") && northObj.tag.Equals("inWall") && northObj.transform.rotation == Quaternion.identity)
                 {
-                    highlightObj(northObj.transform.position);
                     currentTile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                }
+
+                if (northObj != null && eastObj != null && eastObj.tag.Equals("inWall") && eastObj.transform.rotation != Quaternion.identity)
+                {
+                    currentTile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                }
+                if (northObj != null && eastObj != null && eastObj.tag.Equals("inWall") && eastObj.transform.rotation != Quaternion.identity && northObj.tag.Equals("inWall") && northObj.transform.rotation != Quaternion.identity)
+                {
+                    currentTile.transform.rotation = Quaternion.Euler(0, 0,180);
                 }
                 break;
             case "inWall":
