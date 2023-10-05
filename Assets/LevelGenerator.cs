@@ -145,8 +145,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject eastObj = getEastDic(mapObjects, x, y);
         GameObject southObj = getSouthDic(mapObjects, x, y);
         GameObject westObj = getWestDic(mapObjects, x, y);
-
-        bool truth = true;
+        
         switch (currentTile.tag)
         {
             case "outCorner":
@@ -166,6 +165,17 @@ public class LevelGenerator : MonoBehaviour
                 if (northObj != null && eastObj != null && eastObj.tag.Equals("inWall") && eastObj.transform.rotation != Quaternion.identity && northObj.tag.Equals("inWall") && northObj.transform.rotation != Quaternion.identity)
                 {
                     currentTile.transform.rotation = Quaternion.Euler(0, 0,180);
+                }
+
+                if ((northObj != null && westObj != null) && (northObj.tag.Equals("inWall") &&
+                                                              northObj.transform.rotation != Quaternion.identity) && westObj.tag.Equals("inWall") && westObj.transform.rotation == Quaternion.identity)
+                {
+                    currentTile.transform.rotation = Quaternion.Euler(0, 0,180);
+                }
+                if ((northObj != null && eastObj != null) && (northObj.tag.Equals("inWall") &&
+                                                              northObj.transform.rotation != Quaternion.identity) && eastObj.tag.Equals("inWall") && eastObj.transform.rotation == Quaternion.identity)
+                {
+                    currentTile.transform.rotation = Quaternion.Euler(0, 0,90);
                 }
                 break;
             case "inWall":
@@ -236,12 +246,21 @@ public class LevelGenerator : MonoBehaviour
                 {
                     rotationAngle = Quaternion.Euler(0,0, 90);
                 }
+
+                if (north == 7 || south == 7)
+                {
+                    rotationAngle = Quaternion.Euler(0,0, 90);
+                }
                 break;
             case 5:
                 break;
             case 6:
                 break;
             case 7:
+                if (north == 4)
+                {
+                    rotationAngle = Quaternion.Euler(0,0,180);
+                }
                 break;
         }
         return rotationAngle;
