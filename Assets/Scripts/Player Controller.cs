@@ -7,10 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject rabbit;
     [SerializeField]private Tweener tweener;
     [SerializeField] private Animator animator;
+
+    [SerializeField] private Animator deadRabbit;
     //[SerializeField] private AudioSource playerSound;
     void Start()
     {
         StartCoroutine(moveMe());
+        deadRabbit.SetTrigger("Die");
     }
 
     // Update is called once per frame

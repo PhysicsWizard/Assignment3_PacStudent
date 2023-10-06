@@ -2567,6 +2567,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8286908632611535826, guid: 1e4d57a8cb0c3ff478ee007e623d1cbb, type: 3}
   m_PrefabInstance: {fileID: 166414089}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &414031160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 824414228}
+    m_Modifications:
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.597567
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.407749
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.9366453
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38040133007757421, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+      propertyPath: m_Name
+      value: DeadRabbit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,6 +5541,7 @@ Transform:
   - {fileID: 1859188634}
   - {fileID: 2013302535}
   - {fileID: 2018476174}
+  - {fileID: 874848444}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5537,6 +5611,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2226428606376715174, guid: 23cf44f31b1ca1544a56301be5889368, type: 3}
   m_PrefabInstance: {fileID: 832905446}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &874848442 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 38040133007757422, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+  m_PrefabInstance: {fileID: 414031160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &874848444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 38040133007757416, guid: bb62472ff33dd634bb95e5eb2b1191e7, type: 3}
+  m_PrefabInstance: {fileID: 414031160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1216038634
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,6 +5682,7 @@ MonoBehaviour:
   rabbit: {fileID: 1907567523}
   tweener: {fileID: 1216038637}
   animator: {fileID: 1907567525}
+  deadRabbit: {fileID: 874848442}
 --- !u!82 &1216038639
 AudioSource:
   m_ObjectHideFlags: 0

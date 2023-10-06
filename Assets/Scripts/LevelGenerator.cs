@@ -34,7 +34,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject grid;
     void Start()
     {
-        Debug.Log("Level will Generate from Array after PacStudent completes one loop.");
+        Debug.Log("Level will Generate from Array after Rabbit completes one loop.");
         StartCoroutine(waitForMoveGen());
         tiles[0] = null;
         tiles[1] = outCorner;
