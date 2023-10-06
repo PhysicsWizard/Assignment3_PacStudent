@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pellet
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 150252a6e6598dd4d91bef7f4c55ffde, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 6388998038644015647, guid: 5e33caa984d290946b09ec1a0a1a33fe, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []
