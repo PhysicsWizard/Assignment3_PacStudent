@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(2.1f);
             animator.SetFloat("Horizontal", 0f);
             animator.SetFloat("Vertical", 1f);
-            tweener.AddTween(rabbit.transform, new Vector3(2.5f, -5.2f), new Vector3(2.5f, -1),2f);
+            tweener.AddTween(rabbit.transform, startPos, endPos,2f);
             startPos = endPos;
             endPos = new Vector3(endPos.x+5f, endPos.y);
             yield return new WaitForSeconds(2.1f);

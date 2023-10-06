@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment3_PacStudent/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment3_PacStudent/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment3_PacStudent/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Assignment3_PacStudent/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/Highlight.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/Highlight.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/OutWall.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/OutWall.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/inCorner.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/inCorner.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/inWall.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/inWall.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/outCorner.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/outCorner.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/pellet.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/pellet.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/powerPellet.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/powerPellet.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/tJunk.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/LevelObjects/tJunk.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/90degreeRight.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/90degreeRight.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/EnemyUp.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/EnemyUp.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/enemyDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/enemyDown.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelObjects.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelObjects.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/enemyDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Controller.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +32,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging dev",
+    "git-widget-placeholder": "dev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
