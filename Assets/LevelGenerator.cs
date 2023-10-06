@@ -52,14 +52,14 @@ public class LevelGenerator : MonoBehaviour
 
     private int[,] drawFullLevel(int[,] levelMap)
     {
-        int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
+        int[,] fullLevel = new int[levelMap.GetLength(0)-1, levelMap.GetLength(1) * 2];
         fullLevel = flipVertical(flipHorizontal(levelMap));
         return fullLevel;
     }
     
     private int[,] flipVertical(int[,] levelMap)
     {
-        int[,] fullLevel = new int[levelMap.GetLength(0)* 2, levelMap.GetLength(1)];
+        int[,] fullLevel = new int[(levelMap.GetLength(0)) * 2, levelMap.GetLength(1)];
         
         for (int i = 0; i < levelMap.GetLength(0); i++)
         {
@@ -83,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < levelMap.GetLength(1); j++)
             {
-                fullLevel[i  + levelMap.GetLength(0), j] = mirroredArray[i, j];
+                fullLevel[i  + levelMap.GetLength(0)-1, j] = mirroredArray[i, j];
             }
         }
 

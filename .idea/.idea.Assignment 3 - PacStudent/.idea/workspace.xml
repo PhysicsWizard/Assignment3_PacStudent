@@ -16,6 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap.extras@3.0.3/Editor/Tiles/RuleTile/RuleTileEditor.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -94,6 +97,7 @@
       <workItem from="1696301498864" duration="4672000" />
       <workItem from="1696373656818" duration="20571000" />
       <workItem from="1696460156669" duration="7532000" />
+      <workItem from="1696554398177" duration="601000" />
     </task>
     <servers />
   </component>
