@@ -44,7 +44,6 @@ public class Tweener : MonoBehaviour
         if (activeTween == null)
         {
             activeTween = new Tween(targetObject, startPos, endPos, Time.time, duration);
-            Debug.Log("Added");
             //return true;
         }
         //return false;

@@ -34,6 +34,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject grid;
     void Start()
     {
+        Debug.Log("Level will Generate from Array after PacStudent completes one loop.");
+        StartCoroutine(waitForMoveGen());
         tiles[0] = null;
         tiles[1] = outCorner;
         tiles[2] = outWall;
@@ -42,21 +44,48 @@ public class LevelGenerator : MonoBehaviour
         tiles[5] = pellet;
         tiles[6] = pPellet;
         tiles[7] = tJunk;
+    }
 
+    IEnumerator waitForMoveGen()
+    {
+        yield return new WaitForSeconds(8.4f);
         if (grid != null)
         {
             Destroy(grid);
         }
-        genrateLevel(drawFullLevel(levelMap));
+        generateLevel(drawFullLevel(levelMap));
+        Debug.Log("Generated");
     }
-
+    
+    //Loops through the array instantiating level pieces, then fixes their rotation. 
+    private void generateLevel(int [,] level)
+    {
+        for (int cols = 0; cols < level.GetLength(0); cols++)
+        {
+            for (int rows = 0; rows < level.GetLength(1); rows++)
+            {
+                if (tiles[level[cols,rows]] != null)
+                {
+                    mapObjects[new Vector2(cols, rows)] = Instantiate(tiles[level[cols, rows]], new Vector2(rows + 11,-cols + 3),getRotation(level[cols,rows], level,cols,rows));
+                }
+            }
+        }
+        
+        foreach (KeyValuePair<Vector2, GameObject> tile in mapObjects)
+        {
+            fixRotation(tile.Value, (int)tile.Key.x,(int)tile.Key.y);
+        }
+    }
+    
+    
+    // Runs the flip horizotal and vertical methods on a given array. 
     private int[,] drawFullLevel(int[,] levelMap)
     {
         int[,] fullLevel = new int[levelMap.GetLength(0)-1, levelMap.GetLength(1) * 2];
         fullLevel = flipVertical(flipHorizontal(levelMap));
         return fullLevel;
     }
-    
+    //Mirrors the array vertically, skips the last row of the array. 
     private int[,] flipVertical(int[,] levelMap)
     {
         int[,] fullLevel = new int[(levelMap.GetLength(0)) * 2, levelMap.GetLength(1)];
@@ -89,7 +118,8 @@ public class LevelGenerator : MonoBehaviour
 
         return fullLevel;
     }
-
+    
+    //flips the top left quadrant into a new array, mirrored. Then adds the two arrays together to create a large array of the top half of the level. 
     private int[,] flipHorizontal(int[,] levelMap)
     {
         int[,] fullLevel = new int[levelMap.GetLength(0), levelMap.GetLength(1) * 2];
@@ -122,26 +152,9 @@ public class LevelGenerator : MonoBehaviour
 
         return fullLevel;
     }
-
-    private void genrateLevel(int [,] level)
-    {
-        for (int cols = 0; cols < level.GetLength(0); cols++)
-        {
-            for (int rows = 0; rows < level.GetLength(1); rows++)
-            {
-                if (tiles[level[cols,rows]] != null)
-                {
-                    mapObjects[new Vector2(cols, rows)] = Instantiate(tiles[level[cols, rows]], new Vector2(rows,-cols),getRotation(level[cols,rows], level,cols,rows));
-                }
-            }
-        }
-        
-        foreach (KeyValuePair<Vector2, GameObject> tile in mapObjects)
-        {
-            fixRotation(tile.Value, (int)tile.Key.x,(int)tile.Key.y);
-        }
-    }
-
+    
+    
+    //Uses Dictionary to access the actual GameObjects created from the array, after they have been made. Can then get the specific Rotation of that object to determine more specific rules.
     private void fixRotation(GameObject currentTile, int x, int y)
     {
         GameObject northObj = getNorthDic(mapObjects, x, y);
@@ -189,8 +202,8 @@ public class LevelGenerator : MonoBehaviour
                 break;
         }
     }
-
-
+    
+    // Basic set of rules for rotation that can be gained from the 2D array alone
     private Quaternion getRotation(int tile, int[,] array, int x, int y)
     {
         Quaternion rotationAngle = Quaternion.Euler(0,0,0);
@@ -268,7 +281,7 @@ public class LevelGenerator : MonoBehaviour
         }
         return rotationAngle;
     }
-
+    //Gets the int in the array north of the given point in the array
     private int getNorth(int[,] array, int x, int y)
     {
         if (isInBounds(array,x - 1,y))
@@ -278,7 +291,7 @@ public class LevelGenerator : MonoBehaviour
 
         return 0;
     }
-    
+    //Gets the gameobject North of the parameter object in the Dictionary
     private GameObject getNorthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
         if (dict.ContainsKey(new Vector2(x -1, y)))
@@ -287,7 +300,7 @@ public class LevelGenerator : MonoBehaviour
         }
         return null;
     }
-    
+    //Gets the int in the array east of the given point in the array
     private int getEast(int[,] array, int x, int y)
     {
         if (isInBounds(array,x,y+1))
@@ -297,7 +310,7 @@ public class LevelGenerator : MonoBehaviour
 
         return 0;
     }
-    
+    //Gets the gameobject East of the parameter object in the Dictionary
     private GameObject getEastDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
         if (dict.ContainsKey(new Vector2(x, y+1)))
@@ -307,7 +320,7 @@ public class LevelGenerator : MonoBehaviour
 
         return null;
     }
-    
+    //Gets the int in the array south of the given point in the array
     private int getSouth(int[,] array, int x, int y)
     {
         if (isInBounds(array,x + 1,y))
@@ -317,7 +330,7 @@ public class LevelGenerator : MonoBehaviour
 
         return 0;
     }
-    
+    //Gets the gameobject South of the parameter object in the Dictionary
     private GameObject getSouthDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
         if (dict.ContainsKey(new Vector2(x + 1, y)))
@@ -327,7 +340,7 @@ public class LevelGenerator : MonoBehaviour
 
         return null;
     }
-    
+    //Gets the int in the array west of the given point in the array
     private int getWest(int[,] array, int x, int y)
     {
         if (isInBounds(array,x,y - 1))
@@ -337,7 +350,7 @@ public class LevelGenerator : MonoBehaviour
 
         return 0;
     }
-    
+    //Gets the gameobject West of the parameter object in the Dictionary
     private GameObject getWestDic(Dictionary<Vector2, GameObject> dict, int x, int y)
     {
         if (dict.ContainsKey(new Vector2(x, y -1)))
@@ -347,7 +360,7 @@ public class LevelGenerator : MonoBehaviour
 
         return null;
     }
-    
+    //Checks if an Array point is in bounds of the levelmap
     public static bool isInBounds(int[,] array, int x, int y)
     {
         return x >= 0 && x < array.GetLength(0) && y >= 0 && y < array.GetLength(1);

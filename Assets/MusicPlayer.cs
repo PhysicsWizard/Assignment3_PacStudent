@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip start;
     [SerializeField] private AudioClip play;
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource audioSource;
     void Start()
     {
         StartCoroutine(playSound());
@@ -20,11 +21,11 @@ public class MusicPlayer : MonoBehaviour
 
     IEnumerator playSound()
     {
-        audio.clip = start;
-        audio.Play();
-        yield return new WaitForSeconds(audio.clip.length);
-        audio.clip = play;
-        audio.loop = true;
-        audio.Play();
+        audioSource.clip = start;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        audioSource.clip = play;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 }

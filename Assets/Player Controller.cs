@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject rabbit;
     [SerializeField]private Tweener tweener;
     [SerializeField] private Animator animator;
+    //[SerializeField] private AudioSource playerSound;
     void Start()
     {
         StartCoroutine(moveMe());
