@@ -7,11 +7,11 @@ public class Tweener : MonoBehaviour
 {
 
     private Tween activeTween;
-    [SerializeField] private GameObject rabbit;
+    //[SerializeField] private GameObject rabbit;
     private float timer;
     void Start()
     {
-        StartCoroutine(moveMe());
+        
     }
 
     // Update is called once per frame
@@ -49,20 +49,6 @@ public class Tweener : MonoBehaviour
         }
         //return false;
     }
-
-    IEnumerator moveMe()
-    {
-        while (true)
-        {
-            AddTween(rabbit.transform, new Vector3(2.5f, -1), new Vector3(7.5f, -1),2f);
-            yield return new WaitForSeconds(2.1f);
-            AddTween(rabbit.transform, new Vector3(7.5f, -1), new Vector3(7.5f, -5.2f),2f);
-            yield return new WaitForSeconds(2.1f);
-            AddTween(rabbit.transform, new Vector3(7.5f, -5.2f), new Vector3(2.5f, -5.2f),2f);
-            yield return new WaitForSeconds(2.1f);
-            AddTween(rabbit.transform, new Vector3(2.5f, -5.2f), new Vector3(2.5f, -1),2f);
-            yield return new WaitForSeconds(2.1f);
-        }
-    }
+    
 }
 
