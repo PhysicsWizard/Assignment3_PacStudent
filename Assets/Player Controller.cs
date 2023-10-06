@@ -20,20 +20,34 @@ public class PlayerController : MonoBehaviour
     
     IEnumerator moveMe()
     {
+        Vector3 startPos = rabbit.transform.position;
+        Vector3 trueStart = startPos;
+        Vector3 endPos = new Vector3(startPos.x + 5f, startPos.y);
         while (true)
         {
-            tweener.AddTween(rabbit.transform, new Vector3(2.5f, -1), new Vector3(7.5f, -1),2f);
+            tweener.AddTween(rabbit.transform, startPos, endPos,2f);
+            startPos = endPos;
+            endPos = new Vector3(endPos.x, endPos.y - 4.2f);
             yield return new WaitForSeconds(2.1f);
+            
             animator.SetFloat("Vertical", -1f);
-            tweener.AddTween(rabbit.transform, new Vector3(7.5f, -1), new Vector3(7.5f, -5.2f),2f);
+            tweener.AddTween(rabbit.transform, startPos, endPos,2f);
+            startPos = endPos;
+            endPos = new Vector3(endPos.x - 5f, endPos.y);
+            
             yield return new WaitForSeconds(2.1f);
             animator.SetFloat("Vertical", 0f);
             animator.SetFloat("Horizontal", -1f);
-            tweener.AddTween(rabbit.transform, new Vector3(7.5f, -5.2f), new Vector3(2.5f, -5.2f),2f);
+            tweener.AddTween(rabbit.transform, startPos, endPos,2f);
+            startPos = endPos;
+            endPos = new Vector3(endPos.x, endPos.y + 4.2f);
+            
             yield return new WaitForSeconds(2.1f);
             animator.SetFloat("Horizontal", 0f);
             animator.SetFloat("Vertical", 1f);
             tweener.AddTween(rabbit.transform, new Vector3(2.5f, -5.2f), new Vector3(2.5f, -1),2f);
+            startPos = endPos;
+            endPos = new Vector3(endPos.x+5f, endPos.y);
             yield return new WaitForSeconds(2.1f);
             animator.SetFloat("Horizontal", 0f);
             animator.SetFloat("Vertical", 0f);
