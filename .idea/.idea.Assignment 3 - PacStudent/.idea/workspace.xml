@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc6efc06-691a-4159-9bcd-39270835f09e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/enemyDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player Controller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 3 - PacStudent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio Clips.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio Clips.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MusicPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MusicPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Controller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player Controller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tween.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tween.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tweener.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tweener.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/animationTester.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/animationTester.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +30,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../GameDev Weekly Labs/GameDevWeek7/Assets/Scripts/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../GameDev Weekly Labs/GameDevWeek7/Assets/Scripts/Tweener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AudioController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap.extras@3.0.3/Editor/Tiles/RuleTile/RuleTileEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
